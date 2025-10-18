@@ -40,6 +40,26 @@ class TransactionRepository {
 
       final result = await db.query(
         DatabaseConstants.tableTransactions,
+        where:
+            '(${DatabaseConstants.columnFromUserId} = ? AND ${DatabaseConstants.columnType} = ?) '
+            'OR (${DatabaseConstants.columnToUserId} = ? AND ${DatabaseConstants.columnType} = ?)',
+        whereArgs: [userId, 'debit', userId, 'credit'],
+
+        orderBy: '${DatabaseConstants.columnDatetime} DESC',
+      );
+
+      return result.map((map) => TransactionModel.fromMap(map)).toList();
+    } catch (e) {
+      throw DatabaseFailure('Failed to get transactions: ${e.toString()}');
+    }
+  }
+
+  Future<List<TransactionModel>> getUserTransactionsUser(String userId) async {
+    try {
+      final db = await database.database;
+
+      final result = await db.query(
+        DatabaseConstants.tableTransactions,
         where: '${DatabaseConstants.columnFromUserId} = ? OR ${DatabaseConstants.columnToUserId} = ?',
         whereArgs: [userId, userId],
         orderBy: '${DatabaseConstants.columnDatetime} DESC',

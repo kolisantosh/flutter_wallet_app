@@ -8,7 +8,7 @@ import '../blocs/wallet/wallet_state.dart';
 class AddMoneyScreen extends StatefulWidget {
   final String userId;
 
-  const AddMoneyScreen({Key? key, required this.userId}) : super(key: key);
+  const AddMoneyScreen({super.key, required this.userId});
 
   @override
   State<AddMoneyScreen> createState() => _AddMoneyScreenState();

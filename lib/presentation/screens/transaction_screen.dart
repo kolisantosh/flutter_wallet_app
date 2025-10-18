@@ -10,7 +10,7 @@ import '../blocs/transaction/transaction_state.dart';
 class TransactionHistoryScreen extends StatefulWidget {
   final String userId;
 
-  const TransactionHistoryScreen({Key? key, required this.userId}) : super(key: key);
+  const TransactionHistoryScreen({super.key, required this.userId});
 
   @override
   State<TransactionHistoryScreen> createState() => _TransactionHistoryScreenState();
@@ -224,6 +224,10 @@ class _TransactionList extends StatelessWidget {
             .toList()
             .reversed
             .toList();
+
+    print(runningBalance);
+    print(transactions.length);
+    print(transactionsWithBalance.length);
 
     return ListView.builder(
       itemCount: transactionsWithBalance.length,
