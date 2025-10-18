@@ -318,11 +318,11 @@ flutter_wallet/
 
 The app comes pre-populated with demo accounts for testing:
 
-| Email              | Password      | Initial Balance |
-|--------------------|---------------|-----------------|
-| santosh@gmail.com  | password123   | ₹0.00       |
-| satyam@example.com | password123   | ₹0.00       |
-| umesh@example.com  | password123   | ₹0.00       |
+| Email             | Password      | Initial Balance |
+|-------------------|---------------|-----------------|
+| santosh@gmail.com | password123   | ₹0.00       |
+| satyam@gmail.com  | password123   | ₹0.00       |
+| umesh@gmail.com   | password123   | ₹0.00       |
 
 ### User Flow
 
